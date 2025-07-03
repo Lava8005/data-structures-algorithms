@@ -6,7 +6,23 @@ struct Node{
 };
 struct Node* head = NULL;
 struct Node* tail = NULL;
+int Length(){
+    // This function will give the total length of the linked lists and will also put a fail safe if the user enters an incorrect position.
+    // To make this we will have to use a loop that will increse the value of an integer l till the variable returns null value 
+    struct Node* size = head;
+    int count = 0;
+    while(size!=NULL){
+        count++;
+        size = size -> next;
+    }
+    return count;
+}
 void Insert(int x,int y){
+    int len = Length(); // this will be our fail safe
+    if(x<1||x>len+1){
+        printf("Invalid Position to insert, the current length of list is %d .\n",len);
+        return;
+    }
     // here we will ask the user at which point and what value they wish to store.
     struct Node*temp1 = (struct Node*)malloc(sizeof(struct Node));
     temp1 -> data = y;
@@ -22,9 +38,17 @@ void Insert(int x,int y){
     }
     temp1 -> next = temp2 -> next;
     temp2->next = temp1;
+    if(temp1->next == NULL){
+        tail = temp1;
+    } // this will store the last position in tail if needed later on.
     // here what we do is we first connect the new box of value and pointer to what will come after it and then connect the previous box to the new box since there is only a one way connection.
 }
 void Delete(int w){
+    int len = Length(); //This will again be our fail safe
+    if(w<1||w>len ){
+        printf("Invalid Position to delete, the current length of list is %d .\n",len);
+        return;
+    }
     // To delete at a particular node we will have to go there and then free it 
     // now this is a one sided connection , so we will have to go to 2 positions before the node to be deleted then go to the node after the node to be deleted save the position of the n+1 node in the n-1 node and then free the n node
     struct Node* temp3 = head;
@@ -82,7 +106,12 @@ void ReverseRecurrsion(struct Node*temp){
     temp -> next -> next = temp; //will go 2 nodes ahead and declare that as the temp var
     temp -> next = NULL; // this breaks the forward link
 };
-
+void SetTail(){
+    tail = head;
+    while(tail&&tail->next ){
+         tail = tail->next;
+        }
+}
 int main(){
     int n,o,q,w,c;
     // Ask user how many data values they wish to add 
@@ -110,7 +139,7 @@ int main(){
     Print();
     // Now we ask the user if they wish to do any more operations,we will loop this so that the user can access this we use the do while loop.
     do{
-        printf("If you wish to \n 1. Insert Another Data To Set Enter : 1\n 2. Delete Data Enter : 2\n 3.Print The Final List Enter : 3\n 4. Reverse the given list Enter : 4 \n 5. Exit the Program\n");
+        printf("If you wish to \n 1. Insert Another Data To Set Enter : 1\n 2. Delete Data Enter : 2\n 3.Print The Final List Enter : 3\n 4. Reverse the given list Enter : 4 \n 5. To Find the Length of list Enter: 5\n 6. To Exit the Program Enter : 6");
         scanf("%d",&o);
         if(o==1){
         printf("Enter the Position at which you wish to insert the element : ");
@@ -131,9 +160,13 @@ int main(){
     } 
     else if(o==4){
         Reverse();
+        SetTail();//This will save the last position of the linked list for further use if any
+    }
+    else if(o==5){
+        printf("The Length of the list is: %d .",Length());
     }
 }
-while( o!=5);                
+while( o!=6);                
 
     // here we will free the dynamically allocated data.
     // To do that we need to first count the total number of nodes
