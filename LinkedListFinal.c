@@ -139,7 +139,7 @@ int main(){
     Print();
     // Now we ask the user if they wish to do any more operations,we will loop this so that the user can access this we use the do while loop.
     do{
-        printf("If you wish to \n 1. Insert Another Data To Set Enter : 1\n 2. Delete Data Enter : 2\n 3.Print The Final List Enter : 3\n 4. Reverse the given list Enter : 4 \n 5. To Find the Length of list Enter: 5\n 6. To Exit the Program Enter : 6");
+        printf("If you wish to \n 1. Insert Another Data To Set Enter : 1\n 2. Delete Data Enter : 2\n 3.Print The Final List Enter : 3\n 4. Reverse the given list Enter : 4 \n 5. To Find the Length of list Enter: 5\n 6. To Exit the Program Enter : 6\n ");
         scanf("%d",&o);
         if(o==1){
         printf("Enter the Position at which you wish to insert the element : ");
@@ -153,7 +153,7 @@ int main(){
         printf("Enter the Position of Data to be deleted: ");
         scanf("%d",&q);
         Delete(q);
-        printf("The Data value has been deleted Succesfully...");
+        printf("The Data value has been deleted Successfully...");
     }
     else if(o==3){
         Print();
@@ -163,7 +163,7 @@ int main(){
         SetTail();//This will save the last position of the linked list for further use if any
     }
     else if(o==5){
-        printf("The Length of the list is: %d .",Length());
+        printf("The Length of the list is: %d .\n",Length());
     }
 }
 while( o!=6);                
