@@ -17,3 +17,22 @@
 ```bash
 gcc LinkedListFinal.c -o linkedlist
 ./linkedlist
+```
+# Undo-Redo Text Editor (Stacks Project)
+
+**Undo-Redo Text Editor** is a C program that uses three stacks to implement undo/redo functionality for text editing.
+
+## Features
+- Add a sentence to the editor
+- Undo the last change
+- Redo an undone change
+- Display the current content
+
+## Files
+- `stacksfinal.c` – main source code
+
+## How to Run
+```bash
+gcc stacksfinal.c -o texteditor
+./texteditor
+```
