@@ -36,3 +36,20 @@ gcc LinkedListFinal.c -o linkedlist
 gcc stacksfinal.c -o texteditor
 ./texteditor
 ```
+# Tower of Hanoi
+
+**Tower of Hanoi** is a C program that lets the user play the classic puzzle game by moving discs between rods while following the rules of the game.
+
+## Features
+- User chooses the number of discs (3, 4, or 5)
+- Move discs between rods while following the rules
+- Display the rods after every move
+- Game ends when all discs are arranged correctly on a single rod
+
+## Files
+- `TowerOfHanoi.c` – main source code
+
+## How to Run
+```bash
+gcc TowerOfHanoi.c -o hanoi
+./hanoi
